@@ -15,6 +15,9 @@ spec:
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 8888
+          name: notebook
+        - containerPort: 4040
+          name: spark-master
 ---
 apiVersion: v1
 kind: Service
@@ -27,5 +30,9 @@ spec:
   ports:
   - port: 8888
     targetPort: 8888
+    name: notebook
+  - port: 4040
+    targetPort: 4040
+    name: spark-master
   selector:
     app: notebook

@@ -29,6 +29,6 @@ Open browser pointed at notebook server.
 
 ```
 export NODE_IP=$(minikube ip) && \
-export NODE_PORT=$(kubectl get svc notebook -o jsonpath='{.spec.ports[*].nodePort}') && \
+export NODE_PORT=$(kubectl get svc notebook -o jsonpath='{.spec.ports[0].nodePort}') && \
 open http://$NODE_IP:$NODE_PORT
 ```
